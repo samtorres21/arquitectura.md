@@ -81,6 +81,42 @@ Flujo básico
 - Los datos se almacenan en la base de datos.
 - Otros usuarios pueden visualizar la información.
 
+## 🗄️ Modelado de Datos (Diagrama Entidad-Relación)
+
+```mermaid
+erDiagram
+
+    USUARIO ||--o{ EMPRENDIMIENTO : publica
+    USUARIO ||--o{ OFERTA_EMPLEO : crea
+
+    USUARIO {
+        int id
+        string nombre
+        string correo
+        string contrasena
+        string rol
+    }
+
+    EMPRENDIMIENTO {
+        int id
+        string nombre
+        string descripcion
+        string categoria
+        string contacto
+        string imagen
+        int usuario_id
+    }
+
+    OFERTA_EMPLEO {
+        int id
+        string titulo
+        string descripcion
+        string tipo_empleo
+        string contacto
+        date fecha_publicacion
+        int usuario_id
+    }
+
 
 
   
