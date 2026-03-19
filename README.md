@@ -81,7 +81,7 @@ Flujo básico
 - Los datos se almacenan en la base de datos.
 - Otros usuarios pueden visualizar la información.
 
-## 🗄️ Modelado de Datos (Diagrama Entidad-Relación)
+##  Modelado de Datos (Diagrama Entidad-Relación)
 
 ```mermaid
 erDiagram
@@ -116,6 +116,24 @@ erDiagram
         date fecha_publicacion
         int usuario_id
     }
+```
+---
+## Stack Tecnologico
+### Fronted
+- HTML5
+- CSS3
+- Javascript
+
+### Backend
+- Node.js
+### Base de datos
+-MySQL
+-JSON
+### Control de Versiones
+-Git
+-Github
+
+
 
 
 
