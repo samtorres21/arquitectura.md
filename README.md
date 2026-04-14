@@ -133,9 +133,6 @@ erDiagram
 -Git
 -Github
 
----
-## Historias de Usuario
-- https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog
 
 
 
