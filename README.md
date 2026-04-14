@@ -133,6 +133,10 @@ erDiagram
 -Git
 -Github
 
+---
+## Base JSON del Proyecto
+- [Descargar proyecto](./base.zip)
+
 
 
 
