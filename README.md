@@ -118,6 +118,20 @@ erDiagram
     }
 ```
 ---
+##  Gestión del Proyecto
+
+Para la organización y seguimiento del desarrollo se utilizan herramientas ágiles:
+
+###  Historias de Usuario
+
+Las funcionalidades del sistema están definidas mediante historias de usuario en Jira:  
+- [Ver backlog de historias de usuario](https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog)
+
+###  Sprint del Proyecto
+
+La planificación y ejecución del desarrollo se gestiona por sprints:  
+- [Tablero de sprint](https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project+%3D+%22V1%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiNGVjNThkMmI4ZDUxNDZiMTk3MzNmN2IyNzNhMmZhNWMiLCJwIjoiaiJ9)
+---
 ## Stack Tecnologico
 ### Fronted
 - HTML5
