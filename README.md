@@ -136,6 +136,31 @@ erDiagram
 ---
 ## Base JSON del Proyecto
 - [Descargar proyecto](./base.zip)
+---
+# Sprint 3
+
+## Tareas Finalizadas
+
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+
+---
+
+Se han completado los componentes base de configuración y estructura de la aplicación, cumpliendo con los criterios de aceptación establecidos:
+
+- Configuración del servidor Node.js
+  - Inicialización del entorno del servidor.
+  - Configuración de dependencias necesarias.
+  - Estructuración base del proyecto backend.
+
+- Middleware y validaciones
+  - Implementación de middlewares para manejo de solicitudes.
+  - Validación de datos de entrada en endpoints.
+  - Manejo de errores y respuestas estandarizadas.
+
+- Navegación
+  - Implementación de rutas en el frontend.
+  - Configuración de navegación entre vistas.
+  - Integración de estructura de páginas principales.
 
 
 
