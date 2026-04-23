@@ -118,20 +118,6 @@ erDiagram
     }
 ```
 ---
-##  Gestión del Proyecto
-
-Para la organización y seguimiento del desarrollo se utilizan herramientas ágiles:
-
-###  Historias de Usuario
-
-Las funcionalidades del sistema están definidas mediante historias de usuario en Jira:  
-- [Ver backlog de historias de usuario](https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog)
-
-###  Sprint del Proyecto
-
-La planificación y ejecución del desarrollo se gestiona por sprints:  
-- [Tablero de sprint](https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project+%3D+%22V1%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiNGVjNThkMmI4ZDUxNDZiMTk3MzNmN2IyNzNhMmZhNWMiLCJwIjoiaiJ9)
----
 ## Stack Tecnologico
 ### Fronted
 - HTML5
@@ -147,11 +133,28 @@ La planificación y ejecución del desarrollo se gestiona por sprints:
 -Git
 -Github
 
+---
+## Sprints
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project+%3D+%22V1%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiODYxOGRjNjgzMzZiNGY4ZmI2NWQ5M2UxY2JjZmEyN2IiLCJwIjoiaiJ9
 
+  # Sprint 3
 
+##  Tareas Finalizadas
 
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
 
+---
 
-  
+Se han completado los módulos principales de gestión de servicios, cumpliendo con los criterios de aceptación establecidos:
 
+- Listar servicios
+  - Implementación del endpoint para obtener servicios desde la base de datos.
+  - Integración del frontend para visualizar la lista de servicios.
+  - Diseño del componente UI para mostrar la información (nombre, descripción, precio).
 
+- Crear publicación de servicio
+  - Desarrollo del formulario para la creación de servicios.
+  - Validación de campos obligatorios (nombre, descripción, precio).
+  - Implementación del endpoint para guardar servicios.
+  - Integración frontend-backend para el envío de datos.
+  - Confirmación visual al usuario tras crear el servicio.
