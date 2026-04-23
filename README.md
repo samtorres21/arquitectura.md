@@ -173,11 +173,28 @@ Se han completado los módulos relacionados con la gestión de eventos, cumplien
   - Desarrollo de la vista de detalle en frontend.
   - Visualización completa de la información del evento.
 
+---
+## Sprints
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project+%3D+%22V1%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiODYxOGRjNjgzMzZiNGY4ZmI2NWQ5M2UxY2JjZmEyN2IiLCJwIjoiaiJ9
 
+  # Sprint 3
 
+##  Tareas Finalizadas
 
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
 
+---
 
-  
+Se han completado los módulos principales de gestión de servicios, cumpliendo con los criterios de aceptación establecidos:
 
+- Listar servicios
+  - Implementación del endpoint para obtener servicios desde la base de datos.
+  - Integración del frontend para visualizar la lista de servicios.
+  - Diseño del componente UI para mostrar la información (nombre, descripción, precio).
 
+- Crear publicación de servicio
+  - Desarrollo del formulario para la creación de servicios.
+  - Validación de campos obligatorios (nombre, descripción, precio).
+  - Implementación del endpoint para guardar servicios.
+  - Integración frontend-backend para el envío de datos.
+  - Confirmación visual al usuario tras crear el servicio.
