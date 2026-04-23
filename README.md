@@ -132,27 +132,63 @@ erDiagram
 ### Control de Versiones
 -Git
 -Github
+---
+## Historias de usuario
+- https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog
+---
+# Sprint 2
 
 ---
 ## Base JSON del Proyecto
 - [Descargar proyecto](./base.zip)
+
 ---
+
+# Sprint 2
+
+## Tareas Finalizadas
+
+- https://amigo-team-ki349xes.atlassian.net/jira/software/projects/S1/boards/67/backlog
+
+Se han completado los módulos principales de gestión de usuarios y comunicación:
+
+- Registro de usuarios
+  - Implementación de lógica para alta de nuevos perfiles.
+  - Validación de datos y persistencia.
+
+- Inicio de sesión
+  - Flujo de autenticación.
+  - Gestión de sesiones y seguridad.
+
+- Sistema de contacto
+  - Recepción de mensajes y soporte técnico.
+
+---
+
 # Sprint 3
 
 ## Tareas Finalizadas
 
-- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues
 
----
+Se han completado módulos relacionados con eventos y servicios:
 
-Se han completado los componentes base de configuración y estructura de la aplicación, cumpliendo con los criterios de aceptación establecidos:
+## Eventos
 
-- Configuración del servidor Node.js
-  - Inicialización del entorno del servidor.
-  - Configuración de dependencias necesarias.
-  - Estructuración base del proyecto backend.
+- Listar eventos
+- Detalle de evento
+- Integración frontend/backend
 
-- Middleware y validaciones
-  - Implementación de middlewares para manejo de solicitudes.
-  - Validación de datos de entrada en endpoints.
-  - Manejo de errores y respuestas estandarizadas.
+## Servicios
+
+- Listar servicios
+- Crear publicación de servicio
+- Validación de campos
+- Confirmación visual
+
+## Backend Base
+
+- Configuración servidor Node.js
+- Middlewares
+- Validaciones
+- Manejo de errores
