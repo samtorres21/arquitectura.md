@@ -1,4 +1,4 @@
-# ARQUITECTURA — Vitrina Doce de Octubre
+# ARQUITECTURA — Vitrina Doce de Octubre-.
 
 ## Repositorio del Proyecto
 
