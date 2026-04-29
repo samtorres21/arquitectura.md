@@ -183,7 +183,7 @@ Se han completado los módulos relacionados con la gestión de eventos, cumplien
 Se han completado los módulos relacionados con la interacción del usuario y la mejora de la experiencia en la plataforma, cumpliendo con los criterios de aceptación establecidos:
 
 ---
-## 📌 Comentarios y valoraciones
+##  Comentarios y valoraciones
 
 - Implementación del endpoint para crear comentarios en servicios o eventos.
 - Validación de contenido antes de enviar comentarios.
@@ -193,7 +193,7 @@ Se han completado los módulos relacionados con la interacción del usuario y la
 
 ---
 
-## 📌 Notificaciones básicas
+##  Notificaciones básicas
 
 - Implementación de lógica para generar notificaciones al usuario.
 - Notificación al publicar nuevos eventos o servicios.
@@ -201,7 +201,7 @@ Se han completado los módulos relacionados con la interacción del usuario y la
 - Manejo de estado de notificaciones (leídas/no leídas).
 
 ---
-## ✅ Resultado del Sprint
+## Resultado del Sprint
 Todas las funcionalidades fueron desarrolladas y probadas correctamente, cumpliendo con los criterios de aceptación definidos. El sistema ahora permite mayor interacción del usuario mediante favoritos, comentarios y notificaciones, además de un mejor rendimiento general.
 
     
