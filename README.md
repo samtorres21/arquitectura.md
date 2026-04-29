@@ -158,3 +158,34 @@ Se han completado los módulos principales de gestión de servicios, cumpliendo 
   - Implementación del endpoint para guardar servicios.
   - Integración frontend-backend para el envío de datos.
   - Confirmación visual al usuario tras crear el servicio.
+---
+# Sprint 4
+
+Se han completado los módulos relacionados con la gestión de servicios y eventos culturales, cumpliendo con los criterios de aceptación establecidos:
+
+---
+
+## Publicar evento cultural
+
+- Implementación del endpoint para la creación de eventos culturales.
+- Integración con la base de datos para el almacenamiento de eventos.
+- Validación de campos obligatorios (nombre, fecha, descripción).
+- Desarrollo del componente frontend para la publicación de eventos.
+- Visualización del evento publicado en la vitrina.
+
+---
+
+## Detalle de servicio 
+
+- Implementación del endpoint para obtener la información detallada de un servicio.
+- Integración con la base de datos para la consulta del servicio.
+- Desarrollo de la vista de detalle en frontend.
+- Visualización completa de la información del servicio seleccionado.
+- Acceso al detalle desde la lista de servicios.
+
+---
+
+## Resultado del Sprint
+Todas las funcionalidades fueron desarrolladas y probadas correctamente, cumpliendo con los criterios de aceptación definidos. El sistema ahora permite publicar eventos culturales y visualizar el detalle de servicios de manera eficiente.
+
+
