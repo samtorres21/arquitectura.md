@@ -162,3 +162,37 @@ Se han completado los módulos relacionados con la gestión de artistas, cumplie
   - Implementación del endpoint para obtener información detallada de un artista.
   - Desarrollo de la vista de detalle en frontend.
   - Visualización completa de la información del perfil artístico.
+
+  ---
+  ## Tareas Finalizadas
+  - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+
+  ---
+  # Sprint 4
+
+Se han completado los módulos relacionados con la administración de contenido, cumpliendo con los criterios de aceptación establecidos:
+
+---
+##  Eliminación de eventos y servicios
+
+- Implementación del endpoint para eliminar eventos y servicios.
+- Validación de permisos antes de eliminar contenido.
+- Eliminación lógica o física en la base de datos.
+- Confirmación de acción en el frontend.
+- Actualización automática de la lista después de eliminar.
+
+---
+
+##  Panel básico de administración
+
+- Desarrollo de una vista para gestión de contenido.
+- Visualización de eventos y servicios creados.
+- Acceso a opciones de editar y eliminar.
+- Integración con backend para operaciones CRUD.
+- Interfaz sencilla para administración.
+
+---
+
+## Resultado del Sprint
+Se implementaron funcionalidades clave para la gestión y control del contenido dentro de la plataforma, permitiendo una administración más completa.
+
