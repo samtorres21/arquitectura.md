@@ -161,6 +161,9 @@ Se han completado los módulos principales de gestión de servicios, cumpliendo 
 ---
 # Sprint 4
 
+## Tareas Finalizadas
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+
 Se han completado los módulos relacionados con la gestión de servicios y eventos culturales, cumpliendo con los criterios de aceptación establecidos:
 
 ---
