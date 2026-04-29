@@ -173,6 +173,39 @@ Se han completado los módulos relacionados con la gestión de eventos, cumplien
   - Desarrollo de la vista de detalle en frontend.
   - Visualización completa de la información del evento.
 
+  ---
+  ## Tareas Finalizadas
+  - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+
+  ---
+  # Sprint 4
+
+Se han completado los módulos relacionados con la interacción del usuario y la mejora de la experiencia en la plataforma, cumpliendo con los criterios de aceptación establecidos:
+
+---
+## 📌 Comentarios y valoraciones
+
+- Implementación del endpoint para crear comentarios en servicios o eventos.
+- Validación de contenido antes de enviar comentarios.
+- Integración con la base de datos para almacenamiento de comentarios.
+- Desarrollo del componente frontend para visualizar comentarios.
+- Sistema de valoración (estrellas o puntuación).
+
+---
+
+## 📌 Notificaciones básicas
+
+- Implementación de lógica para generar notificaciones al usuario.
+- Notificación al publicar nuevos eventos o servicios.
+- Integración con el frontend para mostrar alertas o mensajes.
+- Manejo de estado de notificaciones (leídas/no leídas).
+
+---
+## ✅ Resultado del Sprint
+Todas las funcionalidades fueron desarrolladas y probadas correctamente, cumpliendo con los criterios de aceptación definidos. El sistema ahora permite mayor interacción del usuario mediante favoritos, comentarios y notificaciones, además de un mejor rendimiento general.
+
+    
+
 
 
 
