@@ -192,3 +192,37 @@ Se han completado módulos relacionados con eventos y servicios:
 - Middlewares
 - Validaciones
 - Manejo de errores
+
+---
+## Tareas Finalizadas 
+- https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
+
+---
+# Sprint 4
+
+Se han completado los módulos relacionados con la seguridad y control de acceso, cumpliendo con los criterios de aceptación establecidos:
+
+---
+
+## Control de roles de usuario
+
+- Definición de roles (administrador, usuario).
+- Implementación de lógica para control de permisos.
+- Restricción de acceso a funcionalidades según el rol.
+- Integración con backend para validación de roles.
+- Protección de rutas en el frontend.
+
+---
+
+## Protección de rutas
+
+- Implementación de middleware para validación de autenticación.
+- Redirección de usuarios no autenticados.
+- Protección de endpoints sensibles en el backend.
+- Manejo de sesiones o tokens.
+- Integración con frontend para control de acceso.
+
+---
+## Resultado del Sprint
+Se fortaleció la seguridad de la aplicación mediante control de acceso, protección de rutas y manejo adecuado de errores.
+
