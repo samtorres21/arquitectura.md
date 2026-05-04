@@ -119,25 +119,38 @@ erDiagram
 ```
 ---
 ## Stack Tecnologico
+
 ### Fronted
+
 - HTML5
 - CSS3
 - Javascript
 
 ### Backend
+
 - Node.js
 ### Base de datos
+
 -MySQL
 -JSON
 ### Control de Versiones
+
 -Git
 -Github
-
 ---
-## Sprints
+---
+
+## Historias de usuario
+- https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog
+---
+
+# Sprint 2.3
+
 - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project+%3D+%22V1%22+ORDER+BY+created+DESC&atlOrigin=eyJpIjoiODYxOGRjNjgzMzZiNGY4ZmI2NWQ5M2UxY2JjZmEyN2IiLCJwIjoiaiJ9
 
-  # Sprint 3
+---
+
+# Sprint 3
 
 ##  Tareas Finalizadas
 
