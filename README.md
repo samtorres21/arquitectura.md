@@ -150,7 +150,7 @@ erDiagram
 ## Validacion del proyecto
 - https://docs.google.com/spreadsheets/d/1HRVmu0zwLBOxuMnEl2w-ohy87npM7uIpf1_0t9toiWM/edit
 ---
-# Sprint 3
+# Sprint 3.2
 
 ## Tareas Finalizadas
 
@@ -181,7 +181,7 @@ Se han completado los módulos relacionados con la gestión de artistas, cumplie
   - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
 
   ---
-  # Sprint 4
+  # Sprint 4.2
 
 Se han completado los módulos relacionados con la administración de contenido, cumpliendo con los criterios de aceptación establecidos:
 
