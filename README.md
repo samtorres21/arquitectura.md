@@ -159,7 +159,7 @@ Se han completado los m처dulos principales de gesti처n de usuarios y comunicaci�
 
    ---
    
-   # Sprint 3
+   # Sprint 3.4
 
 ##  Tareas Finalizadas
 
@@ -184,7 +184,7 @@ Se han completado los m처dulos relacionados con la gesti처n de eventos, cumplien
   - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
 
   ---
-  # Sprint 4
+  # Sprint 4.4
 
 Se han completado los m처dulos relacionados con la interacci처n del usuario y la mejora de la experiencia en la plataforma, cumpliendo con los criterios de aceptaci처n establecidos:
 
