@@ -151,7 +151,7 @@ erDiagram
 
 ---
 
-# Sprint 3
+# Sprint 3.1
 
 ## Tareas Finalizadas
 
@@ -184,7 +184,7 @@ Se han completado módulos relacionados con eventos y servicios:
 - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
 
 ---
-# Sprint 4
+# Sprint 4.1
 
 Se han completado los módulos relacionados con la seguridad y control de acceso, cumpliendo con los criterios de aceptación establecidos:
 
