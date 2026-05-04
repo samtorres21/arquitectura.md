@@ -119,49 +119,35 @@ erDiagram
 ```
 ---
 ## Stack Tecnologico
+
 ### Fronted
+
 - HTML5
 - CSS3
 - Javascript
 
 ### Backend
+
 - Node.js
 ### Base de datos
+
 -MySQL
 -JSON
 ### Control de Versiones
+
 -Git
 -Github
 ---
+---
+
 ## Historias de usuario
 - https://amigo-team-ki349xes.atlassian.net/jira/software/projects/HDUVD/boards/34/backlog
 ---
-# Sprint 2
 
----
+# Sprint 2.1
+
 ## Base JSON del Proyecto
 - [Descargar proyecto](./base.zip)
-
----
-
-# Sprint 2
-
-## Tareas Finalizadas
-
-- https://amigo-team-ki349xes.atlassian.net/jira/software/projects/S1/boards/67/backlog
-
-Se han completado los módulos principales de gestión de usuarios y comunicación:
-
-- Registro de usuarios
-  - Implementación de lógica para alta de nuevos perfiles.
-  - Validación de datos y persistencia.
-
-- Inicio de sesión
-  - Flujo de autenticación.
-  - Gestión de sesiones y seguridad.
-
-- Sistema de contacto
-  - Recepción de mensajes y soporte técnico.
 
 ---
 
