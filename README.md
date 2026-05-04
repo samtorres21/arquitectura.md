@@ -150,7 +150,7 @@ erDiagram
 
 ---
 
-# Sprint 3
+# Sprint 3.3
 
 ##  Tareas Finalizadas
 
@@ -172,7 +172,7 @@ Se han completado los módulos principales de gestión de servicios, cumpliendo 
   - Integración frontend-backend para el envío de datos.
   - Confirmación visual al usuario tras crear el servicio.
 ---
-# Sprint 4
+# Sprint 4.3
 
 ## Tareas Finalizadas
 - https://amigo-team-axypp1be.atlassian.net/jira/software/projects/V1/list/?filter=allissues&jql=project%20%3D%20%22V1%22%20ORDER%20BY%20created%20DESC
