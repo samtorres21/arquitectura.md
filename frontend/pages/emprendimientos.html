@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprendimientos - Plataforma Comunitaria</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fa-solid fa-people-group me-2" style="color: var(--primary-color);"></i>
+                Plataforma Comunitaria
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="emprendimientos.html">Emprendimientos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portafolio.html">Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eventos.html">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empleos.html">Empleos</a></li>
+                    <li class="nav-item ms-lg-3" id="authNavArea">
+                        <a href="login.html" class="btn btn-primary btn-sm mt-1">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Emprendimientos Locales</h2>
+            <button class="btn btn-primary auth-required" id="btnCrearEmprendimiento" data-bs-toggle="modal" data-bs-target="#crearModal" style="display: none;">
+                <i class="fa-solid fa-plus me-1"></i> Publicar Negocio
+            </button>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <input type="text" id="searchInput" class="form-control" placeholder="Buscar negocios por nombre o descripción...">
+            </div>
+        </div>
+
+        <div class="row g-4" id="businessList">
+            <!-- Cards de Emprendimientos iterados por JS -->
+            <div class="text-center text-muted w-100 py-5">Cargando emprendimientos...</div>
+        </div>
+    </div>
+
+    <!-- Modal Crear Emprendimiento -->
+    <div class="modal fade" id="crearModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="crearForm">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold">Registrar Emprendimiento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nombre del Negocio</label>
+                                <input type="text" class="form-control" id="bizName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Categoría</label>
+                                <select class="form-control" id="bizCat" required>
+                                    <option value="Comida">Alimentos y Comida</option>
+                                    <option value="Tecnologia">Tecnología y Electrónica</option>
+                                    <option value="Belleza">Belleza y Salud</option>
+                                    <option value="Servicios">Servicios Profesionales</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Descripción</label>
+                                <textarea class="form-control" id="bizDesc" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Teléfono / WhatsApp</label>
+                                <input type="text" class="form-control" id="bizPhone">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Imagen principal</label>
+                                <input type="file" class="form-control" id="bizImage" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-primary">Guardar Negocio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app.js?v=1.2"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBusinesses();
+        });
+
+        // Cargar
+        async function loadBusinesses() {
+            try {
+                const res = await fetchWithAuth(API_URL + '/businesses');
+                const businesses = await res.json();
+                
+                const container = document.getElementById('businessList');
+                container.innerHTML = '';
+                
+                if(businesses.length === 0) {
+                    container.innerHTML = '<div class="text-center w-100 text-muted">Aún no hay emprendimientos registrados</div>';
+                    return;
+                }
+
+                const user = JSON.parse(localStorage.getItem('user'));
+                const currentUserId = user ? user.id : null;
+
+                businesses.forEach(b => {
+                    const imgUrl = b.image_url ? `http://localhost:3000${b.image_url}` : 'https://via.placeholder.com/400x200?text=Sin+Imagen';
+                    
+                    const isOwner = currentUserId === b.user_id;
+                    const deleteBtn = isOwner ? `<button onclick="deleteBusiness(${b.id})" class="btn btn-sm btn-outline-danger mt-2 w-100"><i class="fa-solid fa-trash"></i> Eliminar Negocio</button>` : '';
+
+                    const card = `
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm border-0">
+                                <img src="${imgUrl}" class="card-img-top" alt="${b.name}" style="height:200px; object-fit:cover;">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">${b.category}</span>
+                                    <h5 class="card-title fw-bold">${b.name}</h5>
+                                    <p class="card-text text-muted small">${b.description.substring(0, 100)}...</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0 d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                        ${b.contact_phone ? `<a href="https://wa.me/${b.contact_phone}" target="_blank" class="btn btn-sm btn-outline-success"><i class="fa-brands fa-whatsapp"></i> Contactar</a>` : '<span></span>'}
+                                        <small class="text-muted">Por ${b.owner_name}</small>
+                                    </div>
+                                    ${deleteBtn}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+            } catch (e) {
+                console.error(e);
+                document.getElementById('businessList').innerHTML = '<div class="text-danger w-100 text-center">Error al cargar negocios</div>';
+            }
+        }
+
+        // Search simple en cliente
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('#businessList .col-md-4');
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').innerText.toLowerCase();
+                const text = card.querySelector('.card-text').innerText.toLowerCase();
+                if(title.includes(term) || text.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Eliminar Negocio
+        async function deleteBusiness(id) {
+            if (!confirm('¿Estás seguro de que deseas eliminar este negocio? Esta acción no se puede deshacer.')) {
+                return;
+            }
+
+            try {
+                const res = await fetchWithAuth(API_URL + '/businesses/' + id, {
+                    method: 'DELETE'
+                });
+                
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error || 'Error al eliminar');
+                }
+                
+                alert('Negocio eliminado exitosamente');
+                loadBusinesses(); // Recargar la lista
+            } catch (err) {
+                alert('Error: ' + err.message);
+            }
+        }
+
+        // Crear
+        document.getElementById('crearForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('bizName').value);
+            formData.append('category', document.getElementById('bizCat').value);
+            formData.append('description', document.getElementById('bizDesc').value);
+            formData.append('contact_phone', document.getElementById('bizPhone').value);
+            
+            const fileInput = document.getElementById('bizImage');
+            if (fileInput.files[0]) {
+                formData.append('image', fileInput.files[0]);
+            }
+
+            try {
+                const res = await fetchWithAuth(API_URL + '/businesses', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error);
+                }
+
+                // Cerrar modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('crearModal'));
+                modal.hide();
+                e.target.reset();
+                loadBusinesses();
+                
+            } catch (err) {
+                alert('Error al guardar: ' + err.message);
+            }
+        });
+    </script>
+</body>
+</html>

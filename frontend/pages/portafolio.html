@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Artístico - Plataforma Comunitaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .gallery-item { cursor: pointer; transition: 0.3s; }
+        .gallery-item:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fa-solid fa-people-group me-2" style="color: var(--primary-color);"></i>
+                Plataforma Comunitaria
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="emprendimientos.html">Emprendimientos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portafolio.html">Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eventos.html">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empleos.html">Empleos</a></li>
+                    <li class="nav-item ms-lg-3" id="authNavArea">
+                        <a href="login.html" class="btn btn-primary btn-sm mt-1">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold">Talento Local</h2>
+                <p class="text-muted mb-0">Descubre los artistas de nuestra comunidad</p>
+            </div>
+            <button class="btn btn-primary auth-required" id="btnCrearPortafolio" data-bs-toggle="modal" data-bs-target="#gestionarPortafolioModal" style="display: none;">
+                <i class="fa-solid fa-paintbrush me-1"></i> Gestionar Portafolio
+            </button>
+        </div>
+
+        <div class="row g-4" id="artistList">
+            <div class="text-center text-muted w-100 py-5">Cargando portafolios...</div>
+        </div>
+    </div>
+
+    <!-- Modal Detalle Artista -->
+    <div class="modal fade" id="artistaModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="artistaName">Nombre del Artista</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <p class="text-muted" id="artistaBio"></p>
+                    <p><strong>Contacto:</strong> <span id="artistaContact"></span></p>
+                    <hr>
+                    <h5 class="fw-bold mb-3">Galería de Obras</h5>
+                    <div class="row g-2" id="galleryList">
+                        <!-- Obras dinámicas -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Gestionar Portafolio -->
+    <div class="modal fade" id="gestionarPortafolioModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="gestionarForm">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold">Actualizar Mi Portafolio</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Biografía</label>
+                            <textarea class="form-control" id="portBio" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Información de Contacto</label>
+                            <textarea class="form-control" id="portContact" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#subirObraModal">Subir Obra</button>
+                        <button type="submit" class="btn btn-primary">Guardar Datos</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Subir Obra -->
+    <div class="modal fade" id="subirObraModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="subirObraForm">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold">Subir Nueva Obra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Título de la Obra</label>
+                            <input type="text" class="form-control" id="obraTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" id="obraDesc" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Archivo</label>
+                            <select class="form-control" id="obraType">
+                                <option value="image">Imagen (Foto, Ilustración)</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Archivo Multimedia</label>
+                            <input type="file" class="form-control" id="obraMedia" required accept="image/*,video/*">
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#gestionarPortafolioModal">Atrás</button>
+                        <button type="submit" class="btn btn-primary">Subir Obra</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPortfolios();
+        });
+
+        async function loadPortfolios() {
+            try {
+                const res = await fetchWithAuth(API_URL + '/portfolios');
+                const p = await res.json();
+                
+                const container = document.getElementById('artistList');
+                container.innerHTML = '';
+                
+                if(p.length === 0) {
+                    container.innerHTML = '<div class="text-center w-100 text-muted">Aún no hay artistas registrados</div>';
+                    return;
+                }
+
+                const user = JSON.parse(localStorage.getItem('user'));
+                const currentUserId = user ? user.id : null;
+
+                p.forEach(artist => {
+                    const isOwner = currentUserId === artist.user_id;
+                    const deleteBtn = isOwner ? `<button class="btn btn-outline-danger btn-sm mt-2 w-100" onclick="event.stopPropagation(); deletePortfolio(${artist.id});">Eliminar Portafolio</button>` : '';
+
+                    const card = `
+                        <div class="col-md-3">
+                            <div class="card h-100 shadow-sm border-0 text-center py-4 px-2 gallery-item" onclick="viewArtist(${artist.id})">
+                                <div class="mb-3">
+                                    <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px; font-size: 2rem;">
+                                        ${artist.artist_name.charAt(0).toUpperCase()}
+                                    </div>
+                                </div>
+                                <h5 class="card-title fw-bold">${artist.artist_name}</h5>
+                                <p class="card-text text-muted small">${artist.bio ? artist.bio.substring(0, 60)+'...' : 'Artista local'}</p>
+                                <div class="mt-auto">
+                                    <button class="btn btn-outline-primary btn-sm w-100">Ver Portafolio</button>
+                                    ${deleteBtn}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+            } catch (e) {
+                console.error(e);
+                document.getElementById('artistList').innerHTML = '<div class="text-danger w-100 text-center">Error al cargar portafolios</div>';
+            }
+        }
+
+        async function viewArtist(id) {
+            try {
+                const res = await fetchWithAuth(API_URL + '/portfolios/' + id);
+                const data = await res.json();
+
+                document.getElementById('artistaName').innerText = data.portfolio.artist_name;
+                document.getElementById('artistaBio').innerText = data.portfolio.bio || 'Sin biografía';
+                document.getElementById('artistaContact').innerText = data.portfolio.contact_info || data.portfolio.artist_email;
+
+                const gList = document.getElementById('galleryList');
+                gList.innerHTML = '';
+                
+                if(data.items.length === 0) {
+                    gList.innerHTML = '<p class="text-muted w-100">Este artista aún no ha subido obras.</p>';
+                } else {
+                    data.items.forEach(item => {
+                        const baseUrl = 'http://localhost:3000';
+                        let mediaHtml = '';
+                        if (item.type === 'video') {
+                            mediaHtml = `<video src="${baseUrl}${item.media_url}" class="img-fluid rounded shadow-sm" style="height: 250px; width: 100%; object-fit: cover;" controls></video>`;
+                        } else {
+                            mediaHtml = `<img src="${baseUrl}${item.media_url}" class="img-fluid rounded shadow-sm" alt="${item.title}" style="height: 250px; width: 100%; object-fit: cover;">`;
+                        }
+                        
+                        gList.innerHTML += `
+                            <div class="col-md-4 mb-3">
+                                <div class="card border-0">
+                                    ${mediaHtml}
+                                    <div class="mt-2 text-center">
+                                        <strong>${item.title || 'Obra'}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+                
+                const modal = new bootstrap.Modal(document.getElementById('artistaModal'));
+                modal.show();
+            } catch(e) {
+                alert('No se pudo cargar el portafolio.');
+            }
+        }
+
+        async function deletePortfolio(id) {
+            if (!confirm('¿Estás seguro de que deseas eliminar tu portafolio? Esta acción no se puede deshacer y borrará todas tus obras.')) {
+                return;
+            }
+
+            try {
+                const res = await fetchWithAuth(API_URL + '/portfolios/' + id, {
+                    method: 'DELETE'
+                });
+                
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error || 'Error al eliminar');
+                }
+                
+                alert('Portafolio eliminado exitosamente');
+                loadPortfolios();
+            } catch (err) {
+                alert('Error: ' + err.message);
+            }
+        }
+
+        document.getElementById('gestionarForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const payload = {
+                bio: document.getElementById('portBio').value,
+                contact_info: document.getElementById('portContact').value
+            };
+            try {
+                const res = await fetchWithAuth(API_URL + '/portfolios', {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error || 'No se pudo guardar la información');
+                }
+                alert('Portafolio actualizado con éxito!');
+                bootstrap.Modal.getInstance(document.getElementById('gestionarPortafolioModal')).hide();
+                loadPortfolios();
+            } catch (err) {
+                alert('Error al guardar: ' + err.message);
+            }
+        });
+
+        document.getElementById('subirObraForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('title', document.getElementById('obraTitle').value);
+            formData.append('description', document.getElementById('obraDesc').value);
+            formData.append('type', document.getElementById('obraType').value);
+            formData.append('media', document.getElementById('obraMedia').files[0]);
+
+            try {
+                const res = await fetchWithAuth(API_URL + '/portfolios/items', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error || 'No se pudo subir la obra');
+                }
+                
+                alert('Obra subida exitosamente!');
+                document.getElementById('subirObraForm').reset();
+                bootstrap.Modal.getInstance(document.getElementById('subirObraModal')).hide();
+                loadPortfolios();
+            } catch (err) {
+                alert('Error al subir: ' + err.message);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "doce-root",
+  "version": "1.0.0",
+  "description": "Raíz del proyecto DOcE para ejecutar backend y frontend simultáneamente",
+  "scripts": {
+    "start": "npx concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && node server.js",
+    "start:frontend": "cd frontend && npx serve"
+  }
+}

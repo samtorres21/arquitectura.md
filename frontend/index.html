@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Comunitaria - Doce de Octubre</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <div class="brand-icon-wrapper">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <span>Plataforma Comunitaria</span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="pages/emprendimientos.html">Emprendimientos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/portafolio.html">Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/eventos.html">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/empleos.html">Empleos</a></li>
+                    <li class="nav-item ms-lg-3" id="authNavArea">
+                        <a href="pages/login.html" class="btn btn-primary btn-sm mt-1 nav-btn-login">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-white text-primary mb-3 py-2 px-3 fs-6 rounded-pill">Comuna 6, Medellín</span>
+                    <h1 class="display-4 fw-bolder mb-4">Tu Comunidad,<br><span class="text-gradient">Conectada e Impulsada</span></h1>
+                    <p class="lead mb-5 opacity-75">Descubre la esencia del Doce de Octubre. Apoya negocios locales, encuentra talento artístico, asiste a eventos y explora oportunidades laborales, todo en un solo lugar.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#proposito" class="btn btn-light btn-lg text-primary fw-bold px-4 rounded-pill btn-hover-scale">Saber Más</a>
+                        <a href="pages/login.html" class="btn btn-primary btn-lg fw-bold px-4 rounded-pill shadow-lg btn-hover-scale">Únete Hoy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1681234567">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.54,197.31,109.83,241.52,103.35,283.47,81.16,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Nuestro Propósito Section -->
+    <section id="proposito" class="py-6 bg-white section-margin">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="purpose-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800" alt="Comunidad unida" class="img-fluid rounded-4 shadow-lg purpose-img">
+                        <div class="floating-badge shadow-lg">
+                            <i class="fa-solid fa-heart text-danger"></i>
+                            <span>Hecho para ti</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-lg-5">
+                    <h2 class="fw-bold mb-4 section-title">¿Por qué hacemos esta <span class="text-primary">Plataforma</span>?</h2>
+                    <p class="text-muted lead mb-4">Creemos firmemente en el poder de lo local. Nuestro objetivo es crear un puente digital que una a todos los habitantes, emprendedores y artistas de nuestra comuna.</p>
+                    <ul class="list-unstyled feature-list">
+                        <li class="mb-3 d-flex align-items-start">
+                            <div class="feature-icon bg-primary-subtle text-primary rounded-circle p-2 me-3 mt-1">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Impulso Económico</h5>
+                                <p class="text-muted mb-0">Damos visibilidad a los negocios de barrio para que lleguen a más vecinos.</p>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <div class="feature-icon bg-success-subtle text-success rounded-circle p-2 me-3 mt-1">
+                                <i class="fa-solid fa-masks-theater"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Cultura y Arte</h5>
+                                <p class="text-muted mb-0">Un espacio para que los artistas locales muestren su talento y portafolio.</p>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <div class="feature-icon bg-info-subtle text-info rounded-circle p-2 me-3 mt-1">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Conexión Comunitaria</h5>
+                                <p class="text-muted mb-0">Fomentamos redes de apoyo y empleo entre los mismos habitantes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre El Doce de Octubre Section -->
+    <section class="py-6 bg-light section-margin position-relative overflow-hidden">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="container position-relative z-1">
+            <div class="row align-items-center flex-lg-row-reverse">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="doce-collage">
+                        <div class="img-1 rounded-4 shadow-sm" style="background-image: url('https://images.unsplash.com/photo-1596404178657-3f3a67d025b3?auto=format&fit=crop&q=80&w=600');"></div>
+                        <div class="img-2 rounded-4 shadow-lg border border-4 border-white" style="background-image: url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&q=80&w=600');"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-5">
+                    <h6 class="text-primary text-uppercase fw-bold mb-2 tracking-wide">Nuestra Esencia</h6>
+                    <h2 class="fw-bold mb-4 section-title">Sobre el <span class="text-primary">Doce de Octubre</span></h2>
+                    <p class="text-muted mb-4 fs-5">
+                        Ubicada en el noroccidente de la ciudad, la Comuna 6, conocida popularmente como el <strong>Doce de Octubre</strong>, es mucho más que sus empinadas calles. Es un territorio vibrante, lleno de historia, lucha y una resiliencia inquebrantable.
+                    </p>
+                    <p class="text-muted mb-4">
+                        Aquí, la creatividad fluye en cada esquina. Desde la gastronomía local hasta las expresiones artísticas urbanas, el "Doce" se caracteriza por su gente cálida y trabajadora. Esta plataforma nace como un homenaje a esa fuerza colectiva, brindando herramientas tecnológicas para que nuestra comunidad siga creciendo y prosperando unida.
+                    </p>
+                    <a href="#modulos" class="btn btn-outline-primary rounded-pill px-4 fw-bold">Explorar la Plataforma <i class="fa-solid fa-arrow-down ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modulos Overview -->
+    <section id="modulos" class="py-6 bg-white section-margin">
+        <div class="container">
+            <div class="text-center mb-5 max-w-700 mx-auto">
+                <h2 class="fw-bold section-title">Explora lo que tenemos para ti</h2>
+                <p class="text-muted lead">Una plataforma integral diseñada para potenciar cada aspecto del desarrollo en nuestro entorno.</p>
+            </div>
+            
+            <div class="row g-4 mt-2">
+                <!-- Emprendimientos -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 module-card text-center p-4 border-0">
+                        <div class="icon-wrapper bg-primary-soft mx-auto mb-4">
+                            <i class="fa-solid fa-store text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Emprendimientos</h4>
+                        <p class="text-muted text-sm mb-4">Directorio de negocios locales. Encuentra los mejores productos y servicios cerca de ti.</p>
+                        <div class="mt-auto">
+                            <a href="pages/emprendimientos.html" class="btn-link-custom stretched-link">Ver directorio <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artistas -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 module-card text-center p-4 border-0">
+                        <div class="icon-wrapper bg-danger-soft mx-auto mb-4">
+                            <i class="fa-solid fa-palette text-danger"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Portafolio Artístico</h4>
+                        <p class="text-muted text-sm mb-4">Conoce el talento local. Músicos, pintores, bailarines y sus obras maestras.</p>
+                        <div class="mt-auto">
+                            <a href="pages/portafolio.html" class="btn-link-custom text-danger stretched-link">Conocer talento <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Eventos -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 module-card text-center p-4 border-0">
+                        <div class="icon-wrapper bg-success-soft mx-auto mb-4">
+                            <i class="fa-solid fa-calendar-days text-success"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Eventos</h4>
+                        <p class="text-muted text-sm mb-4">No te pierdas ninguna actividad cultural, social o deportiva en la comuna.</p>
+                        <div class="mt-auto">
+                            <a href="pages/eventos.html" class="btn-link-custom text-success stretched-link">Ver agenda <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Empleos -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 module-card text-center p-4 border-0">
+                        <div class="icon-wrapper bg-info-soft mx-auto mb-4">
+                            <i class="fa-solid fa-briefcase text-info"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Empleo</h4>
+                        <p class="text-muted text-sm mb-4">Oportunidades laborales publicadas por y para los habitantes del sector.</p>
+                        <div class="mt-auto">
+                            <a href="pages/empleos.html" class="btn-link-custom text-info stretched-link">Buscar vacantes <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand fw-bold text-white fs-4 d-flex align-items-center mb-3" href="index.html">
+                        <i class="fa-solid fa-people-group me-2 text-primary"></i>
+                        Plataforma Doce
+                    </a>
+                    <p class="text-white-50 fs-6">
+                        Construyendo un tejido social más fuerte a través de la tecnología, apoyando el talento y la economía del Doce de Octubre.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-uppercase mb-3 fw-bold fs-6 tracking-wide">Enlaces</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="pages/emprendimientos.html">Emprendimientos</a></li>
+                        <li><a href="pages/portafolio.html">Artistas</a></li>
+                        <li><a href="pages/eventos.html">Eventos</a></li>
+                        <li><a href="pages/empleos.html">Empleos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-uppercase mb-3 fw-bold fs-6 tracking-wide">Comunidad</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="pages/login.html">Iniciar Sesión</a></li>
+                        <li><a href="pages/login.html">Registrarse</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-uppercase mb-3 fw-bold fs-6 tracking-wide">Síguenos</h5>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-5 mb-4">
+            <div class="text-center text-white-50">
+                <small>&copy; 2026 Plataforma Comunitaria Doce de Octubre. Todos los derechos reservados.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
