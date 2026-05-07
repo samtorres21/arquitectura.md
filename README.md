@@ -210,6 +210,23 @@ Se han completado los módulos relacionados con la interacción del usuario y la
 ## Resultado del Sprint
 Todas las funcionalidades fueron desarrolladas y probadas correctamente, cumpliendo con los criterios de aceptación definidos. El sistema ahora permite mayor interacción del usuario mediante favoritos, comentarios y notificaciones, además de un mejor rendimiento general.
 
+---
+# Sprint 5
+
+## Descripción
+
+En este sprint se finalizaron todas las funcionalidades pendientes del proyecto y se completaron los objetivos establecidos en los sprints anteriores.
+
+El código quedó completamente integrado, probado y listo para su entrega/despliegue. Además, se realizaron ajustes finales, validaciones y optimizaciones para garantizar la estabilidad y el correcto funcionamiento de la aplicación.
+
+## Estado del Proyecto
+
+- ✅ Todos los sprints completados
+- ✅ Funcionalidades implementadas
+- ✅ Integración final realizada
+- ✅ Corrección de errores y optimizaciones
+- ✅ Código listo para producción
+
     
 
 
