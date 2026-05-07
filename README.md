@@ -212,3 +212,20 @@ Se han completado los módulos relacionados con la seguridad y control de acceso
 ## Resultado del Sprint
 Se fortaleció la seguridad de la aplicación mediante control de acceso, protección de rutas y manejo adecuado de errores.
 
+---
+# Sprint 5
+
+## Descripción
+
+En este sprint se finalizaron todas las funcionalidades pendientes del proyecto y se completaron los objetivos establecidos en los sprints anteriores.
+
+El código quedó completamente integrado, probado y listo para su entrega/despliegue. Además, se realizaron ajustes finales, validaciones y optimizaciones para garantizar la estabilidad y el correcto funcionamiento de la aplicación.
+
+## Estado del Proyecto
+
+- ✅ Todos los sprints completados
+- ✅ Funcionalidades implementadas
+- ✅ Integración final realizada
+- ✅ Corrección de errores y optimizaciones
+- ✅ Código listo para producción
+
