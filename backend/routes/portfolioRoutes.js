@@ -6,7 +6,7 @@ const upload = require('../middlewares/uploadMiddleware');
 
 router.get('/', portfolioController.getPortfolios);
 router.get('/:id', portfolioController.getPortfolioById);
-router.post('/', verifyToken, portfolioController.createOrUpdatePortfolio);
+router.post('/', verifyToken, upload.single('profile_image'), portfolioController.createPortfolio);
 router.post('/items', verifyToken, upload.single('media'), portfolioController.addPortfolioItem);
 router.delete('/:id', verifyToken, portfolioController.deletePortfolio);
 

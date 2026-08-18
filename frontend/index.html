@@ -11,9 +11,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=6">
 </head>
-<body>
+<body class="bg-gradient-home">
+    <!-- Emojis Flotantes -->
+    <div class="emoji-bg e1">🤝</div>
+    <div class="emoji-bg e2">🏘️</div>
+    <div class="emoji-bg e3">✨</div>
+    <div class="emoji-bg e4">🚀</div>
+    <div class="emoji-bg e5">❤️</div>
+    <div class="emoji-bg e6">🌟</div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -31,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="pages/emprendimientos.html">Emprendimientos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/portafolio.html">Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/portafolio.html?v=v4">Artistas</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/eventos.html">Eventos</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/empleos.html">Empleos</a></li>
                     <li class="nav-item ms-lg-3" id="authNavArea">
@@ -66,7 +73,7 @@
     </section>
 
     <!-- Nuestro Propósito Section -->
-    <section id="proposito" class="py-6 bg-white section-margin">
+    <section id="proposito" class="py-6 section-margin" style="background: transparent;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
@@ -116,7 +123,7 @@
     </section>
 
     <!-- Sobre El Doce de Octubre Section -->
-    <section class="py-6 bg-light section-margin position-relative overflow-hidden">
+    <section class="py-6 section-margin position-relative overflow-hidden" style="background: transparent;">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="container position-relative z-1">
@@ -143,7 +150,7 @@
     </section>
 
     <!-- Modulos Overview -->
-    <section id="modulos" class="py-6 bg-white section-margin">
+    <section id="modulos" class="py-6 section-margin" style="background: transparent;">
         <div class="container">
             <div class="text-center mb-5 max-w-700 mx-auto">
                 <h2 class="fw-bold section-title">Explora lo que tenemos para ti</h2>
@@ -153,7 +160,7 @@
             <div class="row g-4 mt-2">
                 <!-- Emprendimientos -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 module-card text-center p-4 border-0">
+                    <div class="card h-100 module-card glass-card text-center p-4 border-0">
                         <div class="icon-wrapper bg-primary-soft mx-auto mb-4">
                             <i class="fa-solid fa-store text-primary"></i>
                         </div>
@@ -166,7 +173,7 @@
                 </div>
                 <!-- Artistas -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 module-card text-center p-4 border-0">
+                    <div class="card h-100 module-card glass-card text-center p-4 border-0">
                         <div class="icon-wrapper bg-danger-soft mx-auto mb-4">
                             <i class="fa-solid fa-palette text-danger"></i>
                         </div>
@@ -179,7 +186,7 @@
                 </div>
                 <!-- Eventos -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 module-card text-center p-4 border-0">
+                    <div class="card h-100 module-card glass-card text-center p-4 border-0">
                         <div class="icon-wrapper bg-success-soft mx-auto mb-4">
                             <i class="fa-solid fa-calendar-days text-success"></i>
                         </div>
@@ -192,7 +199,7 @@
                 </div>
                 <!-- Empleos -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 module-card text-center p-4 border-0">
+                    <div class="card h-100 module-card glass-card text-center p-4 border-0">
                         <div class="icon-wrapper bg-info-soft mx-auto mb-4">
                             <i class="fa-solid fa-briefcase text-info"></i>
                         </div>
@@ -256,6 +263,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Main JS -->
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=v3"></script>
 </body>
 </html>

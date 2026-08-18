@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+const BASE_URL = 'http://localhost:3001';
+const API_URL = `${BASE_URL}/api`;
 
 // Verificar estado de sesión al cargar página
 document.addEventListener('DOMContentLoaded', () => {

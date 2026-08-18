@@ -3,7 +3,7 @@ const db = require('../config/db');
 exports.getPortfolios = async (req, res) => {
     try {
         const [portfolios] = await db.query(
-            'SELECT p.*, u.name as artist_name FROM portfolios p JOIN users u ON p.user_id = u.id'
+            'SELECT p.*, COALESCE(p.artist_name, u.name) as artist_name FROM portfolios p JOIN users u ON p.user_id = u.id'
         );
         res.json(portfolios);
     } catch (error) {
@@ -15,7 +15,7 @@ exports.getPortfolios = async (req, res) => {
 exports.getPortfolioById = async (req, res) => {
     try {
         const [portfolios] = await db.query(
-            'SELECT p.*, u.name as artist_name, u.email as artist_email FROM portfolios p JOIN users u ON p.user_id = u.id WHERE p.id = ?',
+            'SELECT p.*, COALESCE(p.artist_name, u.name) as artist_name, u.email as artist_email FROM portfolios p JOIN users u ON p.user_id = u.id WHERE p.id = ?',
             [req.params.id]
         );
         if (portfolios.length === 0) return res.status(404).json({ error: 'Portafolio no encontrado' });
@@ -32,20 +32,17 @@ exports.getPortfolioById = async (req, res) => {
     }
 };
 
-exports.createOrUpdatePortfolio = async (req, res) => {
+exports.createPortfolio = async (req, res) => {
     try {
-        const { bio, contact_info } = req.body;
+        const { artist_name, bio, contact_info } = req.body;
+        let profile_image_url = null;
         
-        const [existing] = await db.query('SELECT id FROM portfolios WHERE user_id = ?', [req.user.userId]);
-
-        let portfolioId;
-        if (existing.length > 0) {
-            await db.query('UPDATE portfolios SET bio = ?, contact_info = ? WHERE user_id = ?', [bio, contact_info, req.user.userId]);
-            portfolioId = existing[0].id;
-        } else {
-            const [result] = await db.query('INSERT INTO portfolios (user_id, bio, contact_info) VALUES (?, ?, ?)', [req.user.userId, bio, contact_info]);
-            portfolioId = result.insertId;
+        if (req.file) {
+            profile_image_url = '/uploads/' + req.file.filename;
         }
+        
+        const [result] = await db.query('INSERT INTO portfolios (user_id, artist_name, bio, contact_info, profile_image_url) VALUES (?, ?, ?, ?, ?)', [req.user.userId, artist_name, bio, contact_info, profile_image_url]);
+        const portfolioId = result.insertId;
 
         res.json({ message: 'Portafolio guardado exitosamente', portfolioId });
     } catch (error) {
@@ -56,21 +53,21 @@ exports.createOrUpdatePortfolio = async (req, res) => {
 
 exports.addPortfolioItem = async (req, res) => {
     try {
-        const { title, description, type } = req.body;
+        const { portfolio_id, title, description, type } = req.body;
+        if (!portfolio_id) return res.status(400).json({ error: 'Falta el ID del portafolio' });
         if (!req.file) return res.status(400).json({ error: 'Debes adjuntar un archivo' });
 
         const media_url = '/uploads/' + req.file.filename;
 
-        // Validar que el usuario tenga portafolio
-        const [portfolios] = await db.query('SELECT id FROM portfolios WHERE user_id = ?', [req.user.userId]);
-        if (portfolios.length === 0) return res.status(400).json({ error: 'Primero debes guardar tus datos en "Gestionar Portafolio"' });
+        // Validar que el portafolio pertenezca al usuario
+        const [portfolios] = await db.query('SELECT id FROM portfolios WHERE id = ? AND user_id = ?', [portfolio_id, req.user.userId]);
+        if (portfolios.length === 0) return res.status(403).json({ error: 'No tienes permiso o el portafolio no existe' });
 
-        const portfolioId = portfolios[0].id;
         const itemType = type || 'image';
 
         await db.query(
             'INSERT INTO portfolio_items (portfolio_id, title, media_url, type, description) VALUES (?, ?, ?, ?, ?)',
-            [portfolioId, title, media_url, itemType, description]
+            [portfolio_id, title, media_url, itemType, description]
         );
 
         res.status(201).json({ message: 'Item agregado a la galería' });

@@ -7,19 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=6">
     <style>
         .event-card { border-left: 5px solid var(--primary-color); }
         .event-date-box {
-            background: var(--light);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
             text-align: center;
             padding: 10px;
             border-radius: 10px;
             min-width: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-eventos">
+    <!-- Emojis Flotantes -->
+    <div class="emoji-bg e1">📅</div>
+    <div class="emoji-bg e2">🎉</div>
+    <div class="emoji-bg e3">🎟️</div>
+    <div class="emoji-bg e4">🎪</div>
+    <div class="emoji-bg e5">🌟</div>
+    <div class="emoji-bg e6">📣</div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
@@ -33,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="emprendimientos.html">Emprendimientos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portafolio.html">Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portafolio.html?v=v4">Artistas</a></li>
                     <li class="nav-item"><a class="nav-link active" href="eventos.html">Eventos</a></li>
                     <li class="nav-item"><a class="nav-link" href="empleos.html">Empleos</a></li>
                     <li class="nav-item ms-lg-3" id="authNavArea">
@@ -46,7 +55,7 @@
 
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold">Agenda de Eventos</h2>
+            <h2 class="fw-bold page-title">Agenda de Eventos</h2>
             <button class="btn btn-primary auth-required" id="btnCrearEvento" data-bs-toggle="modal" data-bs-target="#crearModal" style="display: none;">
                 <i class="fa-solid fa-calendar-plus me-1"></i> Publicar Evento
             </button>
@@ -60,7 +69,7 @@
     <!-- Modal Crear Evento -->
     <div class="modal fade" id="crearModal" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content glass-modal">
                 <form id="crearForm">
                     <div class="modal-header border-0">
                         <h5 class="modal-title fw-bold">Nuevo Evento</h5>
@@ -111,22 +120,79 @@
         </div>
     </div>
 
+    <!-- Modal Editar Evento -->
+    <div class="modal fade" id="editarModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content glass-modal">
+                <form id="editarForm">
+                    <input type="hidden" id="editId">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold">Editar Evento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del Evento</label>
+                            <input type="text" class="form-control" id="editName" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="editDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Hora</label>
+                                <input type="time" class="form-control" id="editTime" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ubicación</label>
+                            <input type="text" class="form-control" id="editLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Evento</label>
+                            <select class="form-control" id="editType">
+                                <option>Cultural</option>
+                                <option>Deportivo</option>
+                                <option>Social</option>
+                                <option>Taller/Clase</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Imagen representativa (Opcional)</label>
+                            <input type="file" class="form-control" id="editImage" accept="image/*">
+                            <small class="text-muted">Si no seleccionas nada, se mantendrá la imagen actual.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" rows="3" id="editDesc" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-primary">Actualizar Evento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="../js/app.js?v=v3"></script>
     <script>
+        let allEvents = [];
         document.addEventListener('DOMContentLoaded', () => {
             loadEvents();
         });
 
         async function loadEvents() {
             try {
-                const res = await fetchWithAuth(API_URL + '/events');
-                const events = await res.json();
+                const res = await fetchWithAuth('http://localhost:3001/api/events');
+                allEvents = await res.json();
                 
                 const container = document.getElementById('eventList');
                 container.innerHTML = '';
                 
-                if(events.length === 0) {
+                if(allEvents.length === 0) {
                     container.innerHTML = '<div class="text-center w-100 text-muted">Aún no hay eventos programados.</div>';
                     return;
                 }
@@ -134,20 +200,22 @@
                 const user = JSON.parse(localStorage.getItem('user'));
                 const currentUserId = user ? user.id : null;
 
-                events.forEach(e => {
+                allEvents.forEach(e => {
                     const dateObj = new Date(e.event_date);
                     const months = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-                    const baseUrl = 'http://localhost:3000';
-                    const imgHtml = e.image_url ? `<img src="${baseUrl}${e.image_url}" class="rounded me-3 shadow-sm" style="width: 120px; height: 120px; object-fit: cover;" alt="${e.name}">` : '';
+                    const baseUrl = BASE_URL;
+                    const imgSrc = e.image_url ? (e.image_url.startsWith('http') ? e.image_url : `${baseUrl}${e.image_url}`) : null;
+                    const imgHtml = imgSrc ? `<img src="${imgSrc}" class="rounded me-3 shadow-sm" style="width: 120px; height: 120px; object-fit: cover;" alt="${e.name}">` : '';
 
                     const isOwner = currentUserId === e.user_id;
-                    const deleteBtn = isOwner ? `<button class="btn btn-sm btn-outline-danger mt-3" onclick="deleteEvent(${e.id})"><i class="fa-solid fa-trash"></i> Eliminar Evento</button>` : '';
+                    const editBtn = isOwner ? `<button class="btn btn-sm btn-outline-secondary mt-3 me-2" onclick="openEditModal(${e.id})"><i class="fa-solid fa-pen"></i> Editar</button>` : '';
+                    const deleteBtn = isOwner ? `<button class="btn btn-sm btn-outline-danger mt-3" onclick="deleteEvent(${e.id})"><i class="fa-solid fa-trash"></i> Eliminar</button>` : '';
 
                     const card = `
                         <div class="col-12">
-                            <div class="card event-card shadow-sm border-0 mb-3">
+                            <div class="card event-card shadow-sm border-0 mb-3 glass-card">
                                 <div class="card-body d-flex align-items-center">
-                                    <div class="event-date-box me-4 border bg-light">
+                                    <div class="event-date-box me-4">
                                         <div class="fs-4 fw-bold text-primary">${dateObj.getDate()}</div>
                                         <div class="small text-uppercase fw-bold">${months[dateObj.getMonth()]}</div>
                                     </div>
@@ -159,6 +227,7 @@
                                             <i class="fa-solid fa-location-dot ms-2 me-1"></i> ${e.location}
                                         </p>
                                         <p class="mb-0">${e.description}</p>
+                                        ${editBtn}
                                         ${deleteBtn}
                                     </div>
                                     <div class="ms-3">
@@ -182,7 +251,7 @@
             }
 
             try {
-                const res = await fetchWithAuth(API_URL + '/events/' + id, {
+                const res = await fetchWithAuth('http://localhost:3001/api/events/' + id, {
                     method: 'DELETE'
                 });
                 
@@ -215,7 +284,7 @@
             }
 
             try {
-                const res = await fetchWithAuth(API_URL + '/events', {
+                const res = await fetchWithAuth('http://localhost:3001/api/events', {
                     method: 'POST',
                     body: formData
                 });
@@ -232,6 +301,60 @@
                 
             } catch (err) {
                 alert('Error al guardar: ' + err.message);
+            }
+        });
+
+        function openEditModal(id) {
+            const ev = allEvents.find(e => e.id === id);
+            if (!ev) return;
+            
+            document.getElementById('editId').value = ev.id;
+            document.getElementById('editName').value = ev.name;
+            // Format date to YYYY-MM-DD
+            const dateObj = new Date(ev.event_date);
+            document.getElementById('editDate').value = dateObj.toISOString().split('T')[0];
+            document.getElementById('editTime').value = ev.event_time;
+            document.getElementById('editLocation').value = ev.location;
+            document.getElementById('editType').value = ev.event_type;
+            document.getElementById('editDesc').value = ev.description;
+            
+            const modal = new bootstrap.Modal(document.getElementById('editarModal'));
+            modal.show();
+        }
+
+        document.getElementById('editarForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('editId').value;
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('editName').value);
+            formData.append('event_date', document.getElementById('editDate').value);
+            formData.append('event_time', document.getElementById('editTime').value);
+            formData.append('location', document.getElementById('editLocation').value);
+            formData.append('event_type', document.getElementById('editType').value);
+            formData.append('description', document.getElementById('editDesc').value);
+
+            const fileInput = document.getElementById('editImage');
+            if (fileInput.files[0]) {
+                formData.append('image', fileInput.files[0]);
+            }
+
+            try {
+                const res = await fetchWithAuth('http://localhost:3001/api/events/' + id, {
+                    method: 'PUT',
+                    body: formData
+                });
+                
+                if (!res.ok) {
+                    const d = await res.json();
+                    throw new Error(d.error || 'No se pudo actualizar el evento');
+                }
+
+                bootstrap.Modal.getInstance(document.getElementById('editarModal')).hide();
+                loadEvents();
+                alert('Evento actualizado con éxito');
+            } catch (err) {
+                alert('Error al actualizar: ' + err.message);
             }
         });
     </script>

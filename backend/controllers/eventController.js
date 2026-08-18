@@ -71,3 +71,34 @@ exports.deleteEvent = async (req, res) => {
         res.status(500).json({ error: 'Error del servidor al eliminar evento' });
     }
 };
+
+exports.updateEvent = async (req, res) => {
+    try {
+        const eventId = req.params.id;
+        const userId = req.user.userId;
+
+        const [events] = await db.query('SELECT * FROM events WHERE id = ?', [eventId]);
+        if (events.length === 0) return res.status(404).json({ error: 'Evento no encontrado' });
+        if (events[0].user_id !== userId) return res.status(403).json({ error: 'No tienes permiso para editar este evento' });
+
+        const { name, event_date, event_time, location, description, event_type } = req.body;
+        
+        if (req.file) {
+            const image_url = '/uploads/' + req.file.filename;
+            await db.query(
+                'UPDATE events SET name = ?, event_date = ?, event_time = ?, location = ?, description = ?, event_type = ?, image_url = ? WHERE id = ?',
+                [name, event_date, event_time, location, description, event_type, image_url, eventId]
+            );
+        } else {
+            await db.query(
+                'UPDATE events SET name = ?, event_date = ?, event_time = ?, location = ?, description = ?, event_type = ? WHERE id = ?',
+                [name, event_date, event_time, location, description, event_type, eventId]
+            );
+        }
+
+        res.json({ message: 'Evento actualizado correctamente' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error actualizando el evento' });
+    }
+};

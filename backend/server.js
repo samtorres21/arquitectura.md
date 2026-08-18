@@ -31,6 +31,12 @@ app.get('/', (req, res) => {
     res.json({ message: 'Bienvenido a la API de Plataforma Comunitaria' });
 });
 
+// Global Error Handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: err.message || 'Error interno del servidor' });
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
